@@ -1,0 +1,36 @@
+{% extends 'xtm_fbag_app/base.html' %}
+
+{% block css %}
+
+<style>
+
+    body {
+        background-color:white;
+      }
+
+    
+</style>
+
+
+{% endblock css %}
+
+
+
+{% block content %}
+
+
+<div class="container px-4">
+    <div class="row gx-5">
+  
+<div class="col">
+    <div class="p-3 border bg-light">
+    <h1>{{list.title}}</h1>
+    <article><p>
+        {{list.content}}
+        </p></article>
+    <a class="btn btn-blog pull-right marginBottom10" href="http://bootsnipp.com/user/snippets/2RoQ">READ MORE</a> 
+</div>
+</div>
+</div>
+
+{% endblock content %}
