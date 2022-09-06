@@ -1,0 +1,36 @@
+@media only screen and (max-width:1399px){
+   
+}
+@media only screen and (max-width:1199px){
+   
+}
+@media Only screen and (max-width:992px){
+    .login_wrapper {
+        height: 100%;
+        padding: 20px 0px;
+    }
+    .content-area .left-navigation{display: none;}
+    .content-area .content-body {
+        margin-left: 0; width: 100%;}
+        .full-screen .content-area .left-navigation ul li a span {
+            display: inline-flex;
+        }
+        .user-dropdown svg {
+            width: 40px;
+            margin-right: 9px;
+            display: none;
+        }
+        body.full-screen aside.left-navigation {
+            display: block;
+            max-width: 250px;
+            width: 100% !important;
+            background: #000;
+        }
+        .full-screen .content-area .content-body {
+            margin: 0;
+            width: 100%;
+        }
+        .full-screen .content-area .left-navigation .dasbaord-logo {
+            padding: 30px 24px;
+        }
+}

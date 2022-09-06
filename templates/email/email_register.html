@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Successfully</title>
+</head>
+{% comment %} <body>
+<h4>Hi {{first_name}},</h4>
+<br>
+<p>Thanks for registering at XTM-FBAG application.</p>
+<br>
+<p>Thanks & Regards</p>
+<h4>{{email_from}}</h4>
+
+
+</body> {% endcomment %}
+<body style="background-color: #ffffff; font-size: 16px;">
+    <center>
+      <table align="center" border="0" cellpadding="0" cellspacing="0" style="height:100%; width:600px;">
+          <!-- BEGIN EMAIL -->
+          <tr>
+            <td align="center" bgcolor="#ffffff" style="padding:30px">
+               <p style="text-align:left">Hi <strong>{{first_name}}</strong>,<br><br> Thank you for completing your registration with XTM-FBAG Application.
+              </p>
+              
+              <p style="text-align:left">This email serves as a confirmation that your account is activated and that you are officially a part of the XTM-FBAG family.
+                <br>Enjoy!</p>
+              <p style="text-align:left">
+              Thanks & Regards,<br> XTM FBAG TEAM
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+</body>
+</html>

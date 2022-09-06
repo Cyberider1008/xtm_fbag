@@ -1,0 +1,388 @@
+<html>
+{% load static %}
+<title>SignUp</title>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  </head>
+<body>
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                <form class="mx-1 mx-md-4" method="POST">
+                  {% csrf_token %}
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" name="first_name"/>
+                      <label class="form-label" for="form3Example1c">First Name</label>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form4Example1c" class="form-control" name="last_name" />
+                      <label class="form-label" for="form3Example1c">Last Name</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form5Example1c" class="form-control" name="mobile_number" />
+                      <label class="form-label" for="form3Example1c">Mobile Number</label>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" class="form-control" name="email" />
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" class="form-control" name="password1"/>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" class="form-control" name="password2"/>
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+<!--                    <button type="button" class="btn btn-primary btn-lg" >Register</button>-->
+                    <input type="submit" class="btn btn-primary btn-lg" value="Register">
+                  </div>
+
+                </form>
+
+
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+
+{% block scripts %}
+
+<script>
+         jQuery(".floatlabel input").focus(function() {
+  var elementId = $(this).attr('id');
+   jQuery("label[for=" + elementId + "]").addClass('floatlabel-shift');
+});
+jQuery(".floatlabel input").blur(function() {
+   if($(this).val().length == 0) {
+    var elementId = $(this).attr('id');
+     jQuery("label[for=" + elementId + "]").removeClass('floatlabel-shift');
+   }
+});
+jQuery(".floatlabel input").focus(function() {
+  var elementId = $(this).attr('id');
+   jQuery("label[for=" + elementId + "]").addClass('floatlabel-active');
+});
+jQuery(".floatlabel input").blur(function() {
+  var elementId = $(this).attr('id');
+   jQuery("label[for=" + elementId + "]").removeClass('floatlabel-active');
+});
+
+
+function checkEmail()
+{
+    var x = document.forms["registrationForm"]["email_id"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if(x.match(/^$|\s+/))
+        {
+         document.getElementById('emailmsg').innerHTML = "This field is required";
+		 document.getElementById('email_id').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+	{
+        document.getElementById('emailmsg').innerHTML = "Enter Correct Email";
+		document.getElementById('email_id').style.borderColor = "red";
+        return "Enter Correct Email.\n";
+    }
+	else
+	{
+		document.getElementById('email_id').style.borderColor = "#228B22";
+		document.getElementById('emailmsg').innerHTML = "";
+	}
+	return "";
+}
+function validatePassword() {
+    console.log("inside fxn")
+
+	var password = document.forms["registrationForm"]["signup-pwd"].value;
+	var retype = document.forms["registrationForm"]["signup-confirm"].value;
+    var regularExpression  = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+	if (password.length <= 7)
+	{
+        document.getElementById('pwd1').innerHTML = "Password should be at least 8 characters.";
+		document.getElementById('signup-pwd').style.border="1px solid black";
+		console.log("dvgrfdegtreyrtytfhj")
+        return "Password should be at least 8 characters. \n";
+    }
+    if(!regularExpression.test(password))
+     {
+        document.getElementById('pwd1').innerHTML = "password should contain atleast one number and one special character";
+        return "password should contain atleast one number and one special character. \n";
+    }
+    else{
+     document.getElementById('pwd1').innerHTML = "";
+     return "";
+    }}
+function confirmPassword(){
+    var password = document.forms["registrationForm"]["signup-pwd"].value;
+	var retype = document.forms["registrationForm"]["signup-confirm"].value;
+	if (password != retype)
+	{
+        document.getElementById('pwd2').innerHTML = "Passwords do not match.";
+		document.getElementById('signup-confirm').style.borderColor = "#FF0000";
+        return "Passwords do not match. \n";
+    }
+	else
+	{
+        document.getElementById('pwd2').innerHTML = "";
+		document.getElementById('signup-confirm').style.borderColor = "#228B22";
+    }
+	return "";
+}
+
+
+
+function validateZipcode()
+{
+
+    var z = document.forms["registrationForm"]["zipcode"].value;
+    if(!z.match(/^[a-zA-Z 0-9 ]+$/))
+        {
+         document.getElementById('user-zipcode').innerHTML = "This field is required";
+		 document.getElementById('zipcode').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+
+    if(!z.match(/^[-+]?[0-9]+$/))
+        {
+         document.getElementById('user-zipcode').innerHTML = "(Allowed input:0-9)";
+		 document.getElementById('zipcode').style.borderColor = "#FF0000";
+         return "(Allowed input:0-9) \n";
+        }
+    if (z.length >= 11)
+	{
+        document.getElementById('user-zipcode').innerHTML = "Zipcode should not be greater than 10 digits .";
+		document.getElementById('zipcode').style.border="1px solid black";
+		console.log("dvgrfdegtreyrtytfhj")
+        return "Zipcode should not be greater than 10 digits. \n";
+    }
+    else
+	    {
+            document.getElementById('user-zipcode').innerHTML = "";
+		    document.getElementById('zipcode').style.borderColor = "#228B22";
+        }
+	return "";
+}
+function validateFullname() {
+    var name = document.forms["registrationForm"]["signup-name"].value;
+    if(!name.match(/(?!^ +$)^.+$/))
+        {
+         document.getElementById('firstNameMsg').innerHTML = "This field is required";
+		 document.getElementById('signup-name').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+    if(name.match(/[`~,.<>;':"\/\[\]\|{}()=_+-]/))
+        {
+         document.getElementById('firstNameMsg').innerHTML = "special character not allowed";
+		 document.getElementById('signup-name').style.borderColor = "#FF0000";
+         return "(special character not allowed) \n";
+        }
+    else
+	    {
+            document.getElementById('firstNameMsg').innerHTML = "";
+		    document.getElementById('signup-name').style.borderColor = "#228B22";
+        }
+
+	return "";
+}
+
+function validateAddress() {
+    var name = document.forms["registrationForm"]["address_line"].value;
+    if(name.match(/^$|\s+/))
+        {
+         document.getElementById('addressmsg').innerHTML = "This field is required";
+		 document.getElementById('address_line').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+    if(name.match(/[`~.<>;':"[\]\|{}()=_+]/))
+        {
+         document.getElementById('addressmsg').innerHTML = "special character not allowed";
+		 document.getElementById('addressmsg').style.borderColor = "#FF0000";
+         return "(special character not allowed) \n";
+        }
+    else
+	    {
+            document.getElementById('addressmsg').innerHTML = "";
+		    document.getElementById('address_line').style.borderColor = "#228B22";
+        }
+
+	return "";
+}
+
+
+function validateState() {
+    var name = document.forms["registrationForm"]["state-id"].value;
+    if(name.match(/^$|\s+/))
+        {
+         document.getElementById('user-state').innerHTML = "This field is required";
+		 document.getElementById('state-id').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+    if(name.match(/[`~.<>;':"\/\[\]\|{}()=_+-]/))
+        {
+         document.getElementById('user-state').innerHTML = "special character not allowed";
+		 document.getElementById('state-id').style.borderColor = "#FF0000";
+         return "(special character not allowed) \n";
+        }
+    else
+	    {
+            document.getElementById('user-state').innerHTML = "";
+		    document.getElementById('state-id').style.borderColor = "#228B22";
+        }
+
+	return "";
+}
+
+function validateCity() {
+    var name = document.forms["registrationForm"]["city-id"].value;
+    if(name.match(/^$|\s+/))
+        {
+         document.getElementById('citymsg').innerHTML = "This field is required";
+		 document.getElementById('city-id').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+     if(name.match(/[`~.<>;':"\/\[\]\|{}()=_+-]/))
+        {
+         document.getElementById('citymsg').innerHTML = "special character not allowed";
+		 document.getElementById('city-id').style.borderColor = "#FF0000";
+         return "(special character not allowed) \n";
+        }
+    else
+	    {
+            document.getElementById('citymsg').innerHTML = "";
+		    document.getElementById('city-id').style.borderColor = "#228B22";
+        }
+
+	return "";
+}
+
+function validateCountry() {
+    var name = document.forms["registrationForm"]["country"].value;
+    if(name.match(/^$|\s+/))
+        {
+         document.getElementById('user-country').innerHTML = "This field is required";
+		 document.getElementById('country').style.borderColor = "#FF0000";
+         return "(blank not allowed) \n";
+        }
+    if(name.match(/[`~,.<>;':"\/\[\]\|{}()=_+-]/))
+        {
+         document.getElementById('user-country').innerHTML = "special character not allowed";
+		 document.getElementById('country').style.borderColor = "#FF0000";
+         return "(special character not allowed) \n";
+        }
+    else
+	    {
+            document.getElementById('user-country').innerHTML = "";
+		    document.getElementById('country').style.borderColor = "#228B22";
+        }
+
+
+	return "";
+}
+
+
+function validate() {
+	var result = "";
+	console.log("The value of a is ")
+	result += checkEmail();
+	result += validatePassword();
+	result += validateZipcode();
+    result += validateFullname();
+    result += validateAddress();
+    result += validateState();
+    result += validateCity();
+    result += validateCountry();
+    // result += $("#email_id").change()
+    console.log(result)
+	if (result == ""){ return true; }
+	else{
+	console.log("The value of a is " +result)
+<!--	document.getElementById('pwd1').innerHTML = result;-->
+	return false;
+}}
+
+
+
+</script>
+<script>
+console.log("Inside script")
+$("#email_id").blur(function(){
+  var email = $(this).val();
+  $.ajax({
+
+        url: '/check_email/',
+        type: "GET",
+        data: {
+
+            'email': email,
+        },
+        dataType: 'json',
+        success: function (data) {
+             if (data.email_exists) {
+             console.log("Username already taken");
+                $("#emailmsg").html("Email Address already exists.");
+                $('#register').prop('disabled', true);
+
+             }
+             else{
+                $('#register').prop('disabled', false);
+             }
+
+        }
+  });
+});
+
+
+</script>
+{% endblock %}
+
+
+</html>

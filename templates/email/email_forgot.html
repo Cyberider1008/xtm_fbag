@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+{% comment %} <body>
+  <h4>Hi {{first_name}},</h4>
+  
+
+      Thanks for registering at XTM-FBAG Application<br>
+
+      To reset your password please click on the below link<br>
+      <a href="{{link}}"><button type="button" style='background:r;' class="btn btn-primary">forgot password link</button></a>.<br>
+     <br>
+     Thanks & Regards,<br>
+     support@xtm-fbag.org
+ 
+
+     
+</body> {% endcomment %}
+
+
+
+<body style="background-color: #ffffff; font-size: 16px;">
+    <center>
+      <table align="center" border="0" cellpadding="0" cellspacing="0" style="height:100%; width:600px;">
+          <!-- BEGIN EMAIL -->
+          <tr>
+            <td align="center" bgcolor="#ffffff" style="padding:30px">
+               <p style="text-align:left">Hi {{first_name}},<br><br> We received a request to reset the password for your account for this email address. To initiate the password reset process for your account, click the link below.
+              </p>
+              <p>
+                <a target="_blank" style="text-decoration:none; background-color: black; border: black 1px solid; color: #fff; padding:10px 10px; display:block;" href="{{link}}">
+                  <strong>Reset Password</strong></a>
+              </p>
+              <p style="text-align:left">This link can only be used once. If you need to reset your password again, please visit <a href="{{ protocol }}://{{domain}}">website.com</a> and request another reset.<br><br>If you did not make this request, you can simply ignore this email.</p>
+              <p style="text-align:left">
+              Thanks & Regards,<br>XTM FBAG TEAM
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
